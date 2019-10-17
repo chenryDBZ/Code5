@@ -29,15 +29,15 @@ interface ResponseInterface
 
     public function getSearch();
 }
-//$data = file_get_contents("data.json");
-//
-//$class = new Lexus();
-//$class->populateJson($data);
-//$class->allocateData();
-//
-//$class->getParseSearch();
-//$class->getParseData();
-//
-//echo "\nCode: " . $class->getCode() . "\n";
-//echo "Message: " . $class->getMessage() . "\n";
-//echo "Result Count: " . $class->getResultCount() . "\n";
+$data = file_get_contents("data.json");
+
+$class = new Lexus();
+$class->populateJson($data);
+$class->allocateData();
+
+$class->getParseSearch();
+$class->getParseData();
+
+echo "\nCode: " . $class->getCode() . "\n";
+echo "Message: " . $class->getMessage() . "\n";
+echo "Result Count: " . $class->getResultCount() . "\n";
