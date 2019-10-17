@@ -40,7 +40,7 @@ class Lexus implements ResponseInterface
         }
     }
 
-    //print Data & Search Data
+    //print Data
     public function getParseData()
     {
         $this->parser($this->getData());
@@ -48,6 +48,15 @@ class Lexus implements ResponseInterface
     public function getParseSearch()
     {
         $this->parser($this->getSearch());
+    }
+    public function printCode(){
+        echo "\nCode: " . $this->getCode() . "\n";
+    }
+    public function printMessage(){
+        echo "Message: " . $this->getMessage() . "\n";
+    }
+    public function printResultCount(){
+        echo "Result Count: " . $this->getResultCount() . "\n";
     }
 
     //Data Setters

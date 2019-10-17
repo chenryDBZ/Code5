@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 require_once('Lexus.php');
 
@@ -29,6 +30,7 @@ interface ResponseInterface
 
     public function getSearch();
 }
+
 $data = file_get_contents("data.json");
 
 $class = new Lexus();
@@ -38,6 +40,6 @@ $class->allocateData();
 $class->getParseSearch();
 $class->getParseData();
 
-echo "\nCode: " . $class->getCode() . "\n";
-echo "Message: " . $class->getMessage() . "\n";
-echo "Result Count: " . $class->getResultCount() . "\n";
+$class->printCode();
+$class->printMessage();
+$class->printResultCount();
