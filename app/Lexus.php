@@ -5,12 +5,13 @@ namespace App;
 class Lexus implements ResponseInterface
 {
     protected $parse;
-    protected $data;
-    protected $resultcount = 0;
-    protected $code = 0;
+    protected $data = array(); //empty array
+    protected $resultcount = 0; //default 0
+    protected $code = 0; //default 0
     protected $search;
     protected $message;
 
+    //Recieve JSON Import
     public function populateJson($import)
     {
         $this->parse = json_decode($import, true);
@@ -21,6 +22,7 @@ class Lexus implements ResponseInterface
         return $this->parse;
     }
 
+    //Parse JSON Child values
     public function parser($input)
     {
         if ($input) {
@@ -38,16 +40,16 @@ class Lexus implements ResponseInterface
         }
     }
 
+    //print Data & Search Data
     public function getParseData()
     {
         $this->parser($this->getData());
     }
-
     public function getParseSearch()
     {
         $this->parser($this->getSearch());
     }
-
+    //Data Alocations
     public function allocateData()
     {
         $sort = $this->getJsonData();
@@ -56,6 +58,7 @@ class Lexus implements ResponseInterface
         $this->message = $sort["Message"];
     }
 
+    //Getters
     public function getCode()
     {
         return $this->code;
