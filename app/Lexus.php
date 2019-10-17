@@ -50,7 +50,7 @@ class Lexus implements ResponseInterface
         $this->parser($this->getSearch());
     }
 
-    //Data Alocations
+    //Data Setters
     public function allocateData()
     {
         $sort = $this->getJsonData();
