@@ -11,7 +11,7 @@ class Lexus implements ResponseInterface
     protected $search;
     protected $message;
 
-    //Recieve JSON Import
+    //Receive JSON Import
     public function populateJson($import)
     {
         $this->parse = json_decode($import, true);

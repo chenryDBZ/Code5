@@ -97,11 +97,10 @@ class LexusTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(2, $value["total_records"]);
     }
 
-    public function testParser()
+    public function testGetJsonData()
     {
         $class = new \App\Lexus();
         $class->populateJson($this->data);
-        $class->allocateData();
         $value = $class->getJsonData();
 
         $this->assertIsArray($value);
