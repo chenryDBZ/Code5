@@ -51,13 +51,6 @@ class LexusTest extends PHPUnit\Framework\TestCase
         $this->data = $json;
     }
 
-    public function testSetResult()
-    {
-        $code = new \App\Lexus();
-
-        $this->assertEquals(0, $code->getResultCount());
-    }
-
     public function testGetMessage()
     {
         $class = new \App\Lexus();
@@ -70,15 +63,18 @@ class LexusTest extends PHPUnit\Framework\TestCase
     public function testGetCode()
     {
         $code = new \App\Lexus();
-
+        $code->populateJson($this->data);
+        $code->allocateData();
         $this->assertEquals(0, $code->getCode());
     }
 
     public function testGetResultCount()
     {
         $result = new \App\Lexus();
+        $result->populateJson($this->data);
+        $result->allocateData();
 
-        $this->assertEquals(0, $result->getResultCount());
+        $this->assertEquals(2, $result->getResultCount());
     }
 
     public function testGetData()

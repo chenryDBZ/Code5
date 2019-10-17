@@ -56,6 +56,8 @@ class Lexus implements ResponseInterface
         $this->search = $sort["Search"];
         $this->data = $sort["Data"];
         $this->message = $sort["Message"];
+        $this->code = $sort["Code"];
+        $this->resultcount = $sort["ResultCount"];
     }
 
     //Getters
