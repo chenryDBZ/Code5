@@ -81,8 +81,20 @@ class LexusTest extends PHPUnit\Framework\TestCase
     {
         $class = new \App\Lexus();
         $class->populateJson($this->data);
+        $class->allocateData();
+        $value = $class->getData();
 
-        $this->assertNotNull(true, $class->getData());
+        $this->assertEquals("Document One", $value[0]["document_name"]);
+    }
+
+    public function testGetSearch()
+    {
+        $class = new \App\Lexus();
+        $class->populateJson($this->data);
+        $class->allocateData();
+        $value = $class->getSearch();
+
+        $this->assertEquals(2, $value["total_records"]);
     }
 
     public function testParser()
@@ -90,8 +102,9 @@ class LexusTest extends PHPUnit\Framework\TestCase
         $class = new \App\Lexus();
         $class->populateJson($this->data);
         $class->allocateData();
+        $value = $class->getJsonData();
 
-        $this->assertNotEmpty($class->getParseSearch());
+        $this->assertIsArray($value);
     }
 
 }

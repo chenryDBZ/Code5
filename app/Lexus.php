@@ -4,10 +4,10 @@ namespace App;
 
 class Lexus implements ResponseInterface
 {
-    protected $parse;
     protected $data = array(); //empty array
     protected $resultcount = 0; //default 0
     protected $code = 0; //default 0
+    protected $parse;
     protected $search;
     protected $message;
 
@@ -49,6 +49,7 @@ class Lexus implements ResponseInterface
     {
         $this->parser($this->getSearch());
     }
+
     //Data Alocations
     public function allocateData()
     {
