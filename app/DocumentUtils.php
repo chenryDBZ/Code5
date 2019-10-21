@@ -4,15 +4,16 @@
 namespace App;
 
 
-use mysql_xdevapi\Exception;
-
-class DocumentUtils extends Lexus
+class DocumentUtils
 {
     public static function parseResponseToDocuments($import)
     {
         try{
             if (isset($import)) {
                 foreach ($import as $key => $value) {
+                    if ($key == "Search" || $key == "Data") {
+                        echo $key . "\n";
+                    }
                     if (is_array($value)) {
                         self::parseResponseToDocuments($value);
                         echo "\n";
@@ -23,8 +24,8 @@ class DocumentUtils extends Lexus
             }else{
                 throw new Exception("Not a Json Array");
             }
-        }catch (\Exception $e){
-            echo $e->getMessage();
+        }catch (\Exception $exception){
+            echo $exception->getMessage();
         }
     }
 }

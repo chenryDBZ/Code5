@@ -5,7 +5,6 @@ namespace App;
 
 class Document extends Lexus
 {
-    use jsonDoc;
     protected $documents = array();
 
     public function setDocuments()
