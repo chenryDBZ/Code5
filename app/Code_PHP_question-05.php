@@ -5,13 +5,6 @@ require_once('Lexus.php');
 require_once('Document.php');
 require_once('DocumentUtils.php');
 
-function require_multi($files)
-{
-    $files = func_get_args();
-    foreach ($files as $file)
-        require_once($file);
-}
-
 // Question
 // 
 // You are given the below ResponseInterface and json blob
