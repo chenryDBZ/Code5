@@ -4,16 +4,15 @@
 namespace App;
 
 
+use Exception;
+
 class DocumentUtils
 {
     public static function parseResponseToDocuments($import)
     {
         try{
-            if (isset($import)) {
+            if (is_array($import)) {
                 foreach ($import as $key => $value) {
-                    if ($key == "Search" || $key == "Data") {
-                        echo $key . "\n";
-                    }
                     if (is_array($value)) {
                         self::parseResponseToDocuments($value);
                         echo "\n";
@@ -24,8 +23,8 @@ class DocumentUtils
             }else{
                 throw new Exception("Not a Json Array");
             }
-        }catch (\Exception $exception){
-            echo $exception->getMessage();
+        }catch (\Exception $e){
+            echo $e->getMessage();
         }
     }
 }
