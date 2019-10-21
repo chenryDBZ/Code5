@@ -65,8 +65,7 @@ $class->printCode();
 $class->printMessage();
 $class->printResultCount();
 
-echo "\n _______________\n";
-echo "Static DocumentUtils\n";
+echo "\nStatic DocumentUtils\n";
 $utlis = new DocumentUtils();
 $utlis->parseResponseToDocuments($json_array);
 
