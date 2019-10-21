@@ -1,25 +1,34 @@
 <?php
 
 namespace App;
+trait jsonDoc
+{
+    public function Doc($json)
+    {
+        $value = json_decode($json, true);
+        return $value;
+    }
+}
 
 class Lexus implements ResponseInterface
 {
+    use jsonDoc;
     protected $data = array(); //empty array
     protected $resultcount = 0; //default 0
     protected $code = 0; //default 0
-    protected $parse;
-    protected $search;
+    protected $import;
+    protected $search = array();
     protected $message;
 
     //Receive JSON Import
     public function populateJson($import)
     {
-        $this->parse = json_decode($import, true);
+        $this->import = $this->Doc($import);
     }
 
     public function getJsonData()
     {
-        return $this->parse;
+        return $this->import;
     }
 
     //Parse JSON Child values
@@ -45,21 +54,28 @@ class Lexus implements ResponseInterface
     {
         $this->parser($this->getData());
     }
+
     public function getParseSearch()
     {
         $this->parser($this->getSearch());
     }
-    public function printCode(){
+
+    public function printCode()
+    {
         echo "\nCode: " . $this->getCode() . "\n";
     }
-    public function printMessage(){
+
+    public function printMessage()
+    {
         echo "Message: " . $this->getMessage() . "\n";
     }
-    public function printResultCount(){
+
+    public function printResultCount()
+    {
         echo "Result Count: " . $this->getResultCount() . "\n";
     }
 
-    //Data Setters
+    //Setting Values
     public function allocateData()
     {
         $sort = $this->getJsonData();
