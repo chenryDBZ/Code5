@@ -79,4 +79,4 @@ $utlis->parseResponseToDocuments($json_array);
 // that takes a ResponseInterface as input and returns a collection of Documents.
 //
 // Please ensure that this function also parses document attribute objects
-// @throws \Exception when either the Document or its attribute do not have the correct structure
+// @throws \Exception when either the Document or its attribute do not have the correct

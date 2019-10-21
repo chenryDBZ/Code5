@@ -41,6 +41,4 @@ class document_attribute extends Lexus
     {
         return $this->doc_attributes;
     }
-
-
 }
