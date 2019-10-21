@@ -13,6 +13,9 @@ class DocumentUtils
         try{
             if (is_array($import)) {
                 foreach ($import as $key => $value) {
+                    if($key == "Search" || $key == "Data"){
+                        echo $key . "\n";
+                    }
                     if (is_array($value)) {
                         self::parseResponseToDocuments($value);
                         echo "\n";
