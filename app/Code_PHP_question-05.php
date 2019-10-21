@@ -43,18 +43,15 @@ interface ResponseInterface
 $data = file_get_contents("..\payload\data2.json");
 $json_array = json_decode($data, true);
 
-$class = new Lexus();
-$class->populateJson($data);
+$class = new Lexus($data);
 $class->allocateData();
 
-$docs = new Document();
-$docs->populateJson($data);
+$docs = new Document($data);
 $docs->allocateData();
 $docs->setDocuments();
 $docs->getDocuments();
 
-$NVP = new document_attribute();
-$NVP->populateJson($data);
+$NVP = new document_attribute($data);
 $NVP->allocateData();
 $NVP->setDocAttributes();
 $NVP->getDocAttributes();

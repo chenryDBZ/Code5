@@ -7,6 +7,11 @@ class Document extends Lexus
 {
     protected $documents = array();
 
+    public function __construct($import)
+    {
+        parent::__construct($import);
+    }
+
     public function setDocuments()
     {
         $this->documents = $this->data;
@@ -21,6 +26,11 @@ class Document extends Lexus
 class document_attribute extends Lexus
 {
     protected $doc_attributes = array();
+
+    public function __construct($import)
+    {
+        parent::__construct($import);
+    }
 
     public function setDocAttributes()
     {
